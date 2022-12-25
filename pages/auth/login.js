@@ -12,7 +12,7 @@ export default function Login() {
   const route = useRouter()
   const [user] = useAuthState(auth)
 
-  console.log('current user [login.js]: ', user)
+  // console.log('current user [login.js]: ', user)
 
   // sign in with google
   const googleProvider = new GoogleAuthProvider()

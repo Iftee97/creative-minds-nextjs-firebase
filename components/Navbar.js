@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 export default function Navbar() {
   const [user] = useAuthState(auth)
 
-  console.log('current user [navbar.js]: ', user)
+  // console.log('current user [navbar.js]: ', user)
 
   return (
     <nav className="flex justify-between items-center py-10">
@@ -35,11 +35,13 @@ export default function Navbar() {
                 </button>
               </Link>
               <Link href="/dashboard">
-                <img
-                  className="w-12 rounded-full cursor-pointer"
-                  src={user.photoURL}
-                  alt=""
-                />
+                {user.photoURL && (
+                  <img
+                    className="w-12 rounded-full cursor-pointer"
+                    src={user.photoURL}
+                    alt={`${user.displayName}`}
+                  />
+                )}
               </Link>
             </div>
           )}
